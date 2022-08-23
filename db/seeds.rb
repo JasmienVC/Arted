@@ -7,7 +7,7 @@ Artwork.destroy_all
 User.destroy_all
 
 puts "making admin user..."
-admin = admin.new
+admin = User.new
 admin.email = "admin@admin.com"
 admin.password = "123456"
 admin.save!
@@ -45,6 +45,10 @@ artworks.each_with_index do |artwork, index|
   artwork.save
 
   artist_photo = URI.open(artists_photos[index])
+
+  # find the artists profile, because it was already created at user creation
+  artist_profile = Profile.find()
+
   artist_profile = Profile.new(name: "coolerKünster28", bio: "lalalalalalal lorem ipsum dolor")
   artist_profile.photo.attach(io: artist_photo, filename: "profilepic.jpg", content_type: "image/jpg")
   artist_profile.user_id = random_user_id
