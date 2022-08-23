@@ -1,2 +1,12 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-4">
+
+      <div class="vh-100" style="background-image: url('<%= cl_image_path @profile.photo.key, crop: :fill %>')"></div>
+    </div>
+    <div class="col-8">
+      <h1>Title: <%= @profile.name %></h1>
+      <p><%= @profile.bio %></p>
+    </div>
+  </div>
+</div>
