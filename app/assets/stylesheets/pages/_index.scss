@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 20px;
+  column-gap: 25px;
+}
