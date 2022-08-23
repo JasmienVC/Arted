@@ -17,6 +17,10 @@ artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_19
             "https://upload.wikimedia.org/wikipedia/en/5/59/Otto_Dix_Sy_von_Harden.jpg",
             "https://upload.wikimedia.org/wikipedia/en/2/25/P.G._Wodehouse_-_My_Man_Jeeves_-_1st_American_edition_%281920_printing%29.jpg"]
 
+artists = [
+
+]
+
 def make_random_user
   user = User.new
   user.email = Faker::Internet.email
