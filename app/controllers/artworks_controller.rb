@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
   def show
+    @artwork = Artwork.find(params[:id])
   end
 
   def create
@@ -19,5 +20,11 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def artwork_params
+    params.require(:article).permit(:title, :description, :photo, :price, :shipping_costs)
   end
 end
