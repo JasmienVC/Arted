@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
+  get 'transactions/show'
+  get 'profiles/show'
+  get 'profiles/edit'
+  get 'profiles/update'
+  get 'profiles/destroy'
   get 'artworks/show'
   get 'artworks/create'
   get 'artworks/new'
