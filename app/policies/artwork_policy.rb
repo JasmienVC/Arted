@@ -23,10 +23,10 @@ class ArtworkPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    user.admin? ? true : record.user == user
   end
 
   def destroy?
-    record.user == user
+    user.admin? ? true : record.user == user
   end
 end
