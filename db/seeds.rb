@@ -15,11 +15,19 @@ artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_19
             "https://upload.wikimedia.org/wikipedia/en/9/9a/Augustus_Keppel_by_Thomas_Hickey.jpg",
             "https://upload.wikimedia.org/wikipedia/en/c/cc/Barbour-hilden.jpg",
             "https://upload.wikimedia.org/wikipedia/en/5/59/Otto_Dix_Sy_von_Harden.jpg",
+            "https://upload.wikimedia.org/wikipedia/en/5/59/Otto_Dix_Sy_von_Harden.jpg",
             "https://upload.wikimedia.org/wikipedia/en/2/25/P.G._Wodehouse_-_My_Man_Jeeves_-_1st_American_edition_%281920_printing%29.jpg"]
 
-artists = [
-
-]
+artists = ["https://upload.wikimedia.org/wikipedia/commons/b/b3/Alexandre_Bertin.png",
+           "https://upload.wikimedia.org/wikipedia/commons/9/99/Aoki_Shigeru.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
+           "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",]
 
 def make_random_user
   user = User.new
@@ -30,7 +38,7 @@ def make_random_user
 end
 
 puts "populating database..."
-artworks.each_with_index do |artwork, index|
+artworks.each do |artwork|
   file = URI.open(artwork)
   artwork = Artwork.new(title: "ART", description: "this is the description of this cool artwork")
   artwork.photo.attach(io: file, filename: "art.jpg", content_type: "image/png")
