@@ -1,1 +1,16 @@
-test
+<% @artworks.each do |artwork| %>
+  <div class="card">
+    <div class="artist-infos">
+      <p>artwork.user.email</p>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
+    </div>
+    <%= image_tag "artwork.jpg", alt: "Artwork", width: 200 %>
+    <div class="artwork">
+      <div class="artwork-infos">
+        <h2>artwork.title</h2>
+        <p>artwork.description</p>
+      </div>
+      <h2 class="artwork-pricing">artwork.price</h2>
+    </div>
+  </div>
+<% end %>
