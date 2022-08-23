@@ -1,4 +1,5 @@
 require "open-uri"
+# require "faker"
 
 ######### Artworks seeds:
 artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_1912%2C_Les_ponts_de_Paris_%28Passy%29%2C_The_Bridges_of_Paris%2C_oil_on_canvas%2C_60.5_x_73.2_cm%2C_Museum_Moderner_Kunst_%28mumok%29%2C_Vienna_%28black_and_white%29.jpg",
@@ -11,10 +12,18 @@ artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_19
             "https://upload.wikimedia.org/wikipedia/en/5/59/Otto_Dix_Sy_von_Harden.jpg",
             "https://upload.wikimedia.org/wikipedia/en/2/25/P.G._Wodehouse_-_My_Man_Jeeves_-_1st_American_edition_%281920_printing%29.jpg"]
 
+def make_random_user
+  user = User.new
+  user.email = Faker::Internet.email
+  user.encrypted_password = '#$taawktljasktlw4aaglj'
+  user.save!
+  user
+end
+
 artworks.each_with_index do |artwork, index|
   file = URI.open(artwork)
   artwork = Artwork.new(title: "ART", description: "this is the description of this cool artwork")
   artwork.photo.attach(io: file, filename: "art.jpg", content_type: "image/png")
-  artwork.user_id = index + 1
+  artwork.user_id = make_random_user.id
   artwork.save
 end
