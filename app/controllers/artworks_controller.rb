@@ -9,7 +9,6 @@ class ArtworksController < ApplicationController
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
