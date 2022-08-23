@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem "devise"
 
+gem "pundit"
+
 gem "cloudinary"
 
 gem "faker"
