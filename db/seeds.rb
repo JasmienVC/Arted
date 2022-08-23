@@ -15,7 +15,7 @@ artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_19
 def make_random_user
   user = User.new
   user.email = Faker::Internet.email
-  user.encrypted_password = '#$taawktljasktlw4aaglj'
+  user.password = '#$taawktljasktlw4aaglj'
   user.save!
   user
 end
