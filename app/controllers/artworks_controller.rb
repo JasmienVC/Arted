@@ -1,11 +1,13 @@
 class ArtworksController < ApplicationController
   def show
+    authorize @artwork
     @artwork = Artwork.find(params[:id])
   end
 
   def create
     @artwork = Artwork.new(artwork_params)
     @artwork.user = current_user
+    authorize @artwork
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
@@ -15,6 +17,7 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
+    authorize @artwork
   end
 
   def index
@@ -22,12 +25,15 @@ class ArtworksController < ApplicationController
   end
 
   def edit
+    authorize @artwork
   end
 
   def update
+    authorize @artwork
   end
 
   def destroy
+    authorize @artwork
   end
 
   private
