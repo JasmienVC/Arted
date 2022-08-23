@@ -4,9 +4,17 @@ class ArtworksController < ApplicationController
   end
 
   def create
+    @artwork = Artwork.new(artwork_params)
+    @artwork.user = current_user
+    if @artwork.save
+      redirect_to artwork_path(@artwork)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def new
+    @artwork = Artwork.new
   end
 
   def index
@@ -25,6 +33,6 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params.require(:article).permit(:title, :description, :photo, :price, :shipping_costs)
+    params.require(:artwork).permit(:title, :description, :price, :shipping_costs, photos: [])
   end
 end
