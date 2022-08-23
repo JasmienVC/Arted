@@ -16,3 +16,5 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %>

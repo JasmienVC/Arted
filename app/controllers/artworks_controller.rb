@@ -21,6 +21,7 @@ class ArtworksController < ApplicationController
   end
 
   def index
+    @artworks = policy_scope(Artwork)
     @artworks = Artwork.all
   end
 
