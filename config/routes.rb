@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
 
   resources :artworks
   resources :profiles
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   # get 'artworks/edit'
   # get 'artworks/update'
   # get 'artworks/destroy'
-  root to: "pages#home"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
