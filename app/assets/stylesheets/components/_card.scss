@@ -1,4 +1,4 @@
-.card-trip {
+.card {
   margin: 30px;
   height: 500px;
   width: 350px;
@@ -7,26 +7,28 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
+.card > img {
+  padding-left: 10px;
+  padding-right: 10px;
   height: 75%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
+.card p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-trip .card-trip-infos {
+.card .artwork {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -34,9 +36,18 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.artist-infos .avatar-user {
   position: absolute;
   right: 16px;
-  top: -20px;
+  top: 6px;
   width: 40px;
+}
+
+.card .artist-infos {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }

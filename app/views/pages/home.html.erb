@@ -6,21 +6,19 @@
   </div>
 </div>
 
-<div class="card-trip">
+<div class="card">
   <div class="artist-infos">
-    <div>
-      <p>Artist name</p>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-    </div>
+    <p>Artist name</p>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
   </div>
-  <img src="artwork.jpg"/>
-  <div class="card-trip-infos">
-    <div>
+  <%= image_tag "artwork.jpg", alt: "Artwork", width: 200 %>
+  <div class="artwork">
+    <div class="artwork-infos">
       <h2>Title</h2>
-      <p>materials</p>
-      <p>likes</p>
-      <h2 class="card-trip-pricing">€99.99</h2>
+      <p>Materials</p>
+      <p>Likes</p>
     </div>
+    <h2 class="artwork-pricing">€99.99</h2>
   </div>
 </div>
 
