@@ -21,4 +21,10 @@ class ArtworksController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def artwork_params
+    params.require(:article).permit(:title, :description, :photo, :price, :shipping_costs)
+  end
 end
