@@ -27,6 +27,7 @@
       <p><%= @artwork.description %></p>
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
+      <%= link_to "Buy this artwork", new_transaction_path %>
     </div>
   </div>
 </div>
