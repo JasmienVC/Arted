@@ -47,9 +47,10 @@ artworks.each_with_index do |artwork, index|
   artist_photo = URI.open(artists_photos[index])
 
   # find the artists profile, because it was already created at user creation
-  artist_profile = Profile.find()
 
-  artist_profile = Profile.new(name: "coolerKünster28", bio: "lalalalalalal lorem ipsum dolor")
+  artist_profile = Profile.find(index)
+  artist_profile.name = "coolerKünster#{index}"
+  artist_profile.bion = "lalalalalalal lorem ipsum dolor"
   artist_profile.photo.attach(io: artist_photo, filename: "profilepic.jpg", content_type: "image/jpg")
   artist_profile.user_id = random_user_id
   artist_profile.save
