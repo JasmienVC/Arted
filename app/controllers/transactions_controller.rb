@@ -22,4 +22,19 @@ class TransactionsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def confirm_transaction
+    raise
+    artwork = Artwork.find(params[:id])
+    # artwork.transaction.status = "confirmed"
+    if artwork.transaction.save
+      redirect
+    else
+
+    end
+
+    @transaction.status = confirmed
+
+    redirect_to ...
+  end
 end

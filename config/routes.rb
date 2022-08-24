@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :artworks do
     resources :transactions
   end
-
+  get "/confirm", to: "transactions#confirm_transaction", as: :confirm
 
   # get 'transactions/index'
   # get 'transactions/show'
