@@ -43,7 +43,7 @@ artworks.each_with_index do |artwork, index|
   # add a artwork price and shipping
   artwork_photo = URI.open(artwork)
   artwork = Artwork.new(title: "ART", description: "this is the description of this cool artwork")
-  artwork.photo.attach(io: artwork_photo, filename: "art.jpg", content_type: "image/jpg")
+  artwork.photos.attach(io: artwork_photo, filename: "art.jpg", content_type: "image/jpg")
   artwork.user_id = random_user_id
   artwork.price = 950
   artwork.shipping_costs = 2.99
