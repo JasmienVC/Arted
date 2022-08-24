@@ -42,7 +42,10 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+    @artwork = Artwork.find(params[:id])
     authorize @artwork
+    @artwork.destroy
+    redirect_to artworks_path, status: :see_other
   end
 
   private
