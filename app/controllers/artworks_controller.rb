@@ -26,11 +26,19 @@ class ArtworksController < ApplicationController
   end
 
   def edit
+    @artwork = Artwork.find(params[:id])
     authorize @artwork
   end
 
   def update
+    @artwork = Artwork.find(params[:id])
+    @artwork.user = current_user
     authorize @artwork
+    if @artwork.update(artwork_params)
+      redirect_to artwork_path(@artwork)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
