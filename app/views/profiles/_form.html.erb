@@ -1,0 +1,8 @@
+<div class="m-4 p-4">
+  <%= simple_form_for(@profile) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :bio %>
+    <%= f.input :photo, as: :file %>
+    <span class=""><%= f.submit %></span>
+  <% end %>
+</div>
