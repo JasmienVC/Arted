@@ -6,18 +6,23 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="artist-infos">
-    <p>Artist name</p>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
-  </div>
-  <%= image_tag "artwork.jpg", alt: "Artwork", width: 200 %>
-  <div class="artwork">
-    <div class="artwork-infos">
-      <h2>Title</h2>
-      <p>Materials</p>
-      <p>Likes</p>
+<div class="grid-container">
+  <% @artworks.each do |artwork| %>
+    <div class="card">
+      <div class="artist-infos">
+        <p><%= artwork.user.email %></p>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
+      </div>
+      <%= link_to artwork_path(artwork) do %>
+        <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <div class="artwork">
+        <div class="artwork-infos">
+          <h2><%= artwork.title %></h2>
+          <p><%= artwork.description %></p>
+        </div>
+        <h2 class="artwork-pricing"><%= artwork.price %></h2>
+      </div>
     </div>
-    <h2 class="artwork-pricing">€99.99</h2>
-  </div>
+  <% end %>
 </div>
