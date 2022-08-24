@@ -30,3 +30,9 @@
     </div>
   </div>
 </div>
+
+<% if policy(@artwork).edit? %>
+  <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %>
+<% end %>
+
+<%= button_to "Destroy this artwork", @artwork, method: :delete if policy(@artwork).destroy? %>

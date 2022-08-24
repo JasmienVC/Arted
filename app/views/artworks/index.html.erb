@@ -5,7 +5,7 @@
         <p><%= artwork.user.email %></p>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
       </div>
-      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
       <div class="artwork">
         <div class="artwork-infos">
           <h2><%= artwork.title %></h2>
@@ -16,3 +16,5 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %>
