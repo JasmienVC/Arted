@@ -50,7 +50,7 @@ artworks.each_with_index do |artwork, index|
 
   artist_profile = Profile.find(index + 1)
   artist_profile.name = "coolerKünster#{index}"
-  artist_profile.bion = "lalalalalalal lorem ipsum dolor"
+  artist_profile.bio = "lalalalalalal lorem ipsum dolor"
   artist_profile.photo.attach(io: artist_photo, filename: "profilepic.jpg", content_type: "image/jpg")
   artist_profile.user_id = random_user_id
   artist_profile.save
