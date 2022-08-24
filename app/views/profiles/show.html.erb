@@ -10,3 +10,9 @@
     </div>
   </div>
 </div>
+
+<% if policy(@profile).edit? %>
+  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+<% end %>
+
+<%= button_to "Delete your profile", @profile, method: :delete if policy(@profile).destroy? %>
