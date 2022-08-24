@@ -1,9 +1,5 @@
-<h1>transaction</h1>
 <div class="container my-5">
   <h1>Confirm buying this Artwork:</h1>
-  <%= current_user.id %>
-  <br>
-  <%= @artwork = Artwork.find(params["artwork_id"]) %>
 
   <%= link_to "Confirm Purchase", confirm_path(id: @artwork.id) %>
 
