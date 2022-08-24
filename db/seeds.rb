@@ -14,17 +14,17 @@ admin.save!
 
 ######### Artworks seeds:
 # should change this to the cloudinary photo codes at some point
-artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_1912%2C_Les_ponts_de_Paris_%28Passy%29%2C_The_Bridges_of_Paris%2C_oil_on_canvas%2C_60.5_x_73.2_cm%2C_Museum_Moderner_Kunst_%28mumok%29%2C_Vienna_%28black_and_white%29.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/1/13/Albert_Gleizes%2C_1915%2C_Composition_pour_Jazz%2C_oil_on_cardboard%2C_73_x_73_cm%2C_Solomon_R._Guggenheim_Museum%2C_New_York_DSC00542.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/e/eb/Alexander-II-monument3.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/b/b5/Babys_first_cradle_Strindberg.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/c/c5/AugustusKollnerNearAndBelowBedfordPA1840.jpg"]
+artworks = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330810/seeds/7g14doghnwc1uh2sg0xfz837ftfd.jpg",
+            "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330814/seeds/r2vdzjwg4bxvesi8zhxu8q4sw526.jpg",
+            "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330817/seeds/9mrxd8ku47yurs4vc0dxmdl6d0u7.jpg",
+            "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330819/seeds/f1wkf2jp1xi17bb3nwgc33en5ycm.jpg",
+            "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330822/seeds/tv4m6nrqg1wssnhm5rkbu2o06y7p.jpg"]
 
-artists_photos = ["https://upload.wikimedia.org/wikipedia/commons/b/b3/Alexandre_Bertin.png",
-                  "https://upload.wikimedia.org/wikipedia/commons/9/99/Aoki_Shigeru.jpg",
-                  "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
-                  "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg",
-                  "https://upload.wikimedia.org/wikipedia/commons/1/1e/KounoBairei%E5%B9%B8%E9%87%8E%E6%A5%B3%E5%B6%BA.jpg"]
+artists_photos = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330812/seeds/ur89m1htbvwb2jutxt19v61cppuf.png",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330815/seeds/ojf4fvzyq9mpfepr6hs9htmtqb2e.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg"]
 
 def make_random_user
   # makes a new random user and returns the user
