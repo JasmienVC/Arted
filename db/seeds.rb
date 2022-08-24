@@ -13,6 +13,7 @@ admin.password = "123456"
 admin.save!
 
 ######### Artworks seeds:
+# should change this to the cloudinary photo codes at some point
 artworks = ["https://upload.wikimedia.org/wikipedia/en/c/c9/Albert_Gleizes%2C_1912%2C_Les_ponts_de_Paris_%28Passy%29%2C_The_Bridges_of_Paris%2C_oil_on_canvas%2C_60.5_x_73.2_cm%2C_Museum_Moderner_Kunst_%28mumok%29%2C_Vienna_%28black_and_white%29.jpg",
             "https://upload.wikimedia.org/wikipedia/en/1/13/Albert_Gleizes%2C_1915%2C_Composition_pour_Jazz%2C_oil_on_cardboard%2C_73_x_73_cm%2C_Solomon_R._Guggenheim_Museum%2C_New_York_DSC00542.jpg",
             "https://upload.wikimedia.org/wikipedia/en/e/eb/Alexander-II-monument3.jpg",
@@ -38,10 +39,14 @@ puts "populating database..."
 artworks.each_with_index do |artwork, index|
   random_user_id = make_random_user.id
 
+
+  # add a artwork price and shipping
   artwork_photo = URI.open(artwork)
   artwork = Artwork.new(title: "ART", description: "this is the description of this cool artwork")
   artwork.photo.attach(io: artwork_photo, filename: "art.jpg", content_type: "image/jpg")
   artwork.user_id = random_user_id
+  artwork.price = 950
+  artwork.shipping_costs = 2.99
   artwork.save
 
   artist_photo = URI.open(artists_photos[index])
