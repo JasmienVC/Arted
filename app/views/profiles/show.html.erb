@@ -6,14 +6,20 @@
       <% end %>
     </div>
     <div class="col-8">
-      <h1>Title: <%= @profile.name %></h1>
+      <h1><%= @profile.name %></h1>
       <p><%= @profile.bio %></p>
     </div>
   </div>
 </div>
 
-<% if policy(@profile).edit? %>
-  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+<% if @profile.name %>
+  <% if policy(@profile).edit? %>
+    <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+  <% end %>
+<% else %>
+  <% if policy(@profile).edit? %>
+    <%= link_to "Make a new profile", edit_profile_path(@profile) %>
+  <% end %>
 <% end %>
 
 <%= button_to "Delete your profile", @profile, method: :delete if policy(@profile).destroy? %>
