@@ -7,7 +7,7 @@ Artwork.destroy_all
 User.destroy_all
 
 puts "making admin user..."
-admin = admin.new
+admin = User.new
 admin.email = "admin@admin.com"
 admin.password = "123456"
 admin.save!

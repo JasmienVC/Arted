@@ -1,7 +1,7 @@
 class ArtworksController < ApplicationController
   def show
-    authorize @artwork
     @artwork = Artwork.find(params[:id])
+    authorize @artwork
   end
 
   def create
