@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  resources :artworks
   resources :profiles
-  resources :transactions
+  resources :artworks do
+    resources :transactions
+  end
 
 
   # get 'transactions/index'
