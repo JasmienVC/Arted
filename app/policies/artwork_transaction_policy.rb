@@ -1,4 +1,4 @@
-class TransactionPolicy < ApplicationPolicy
+class ArtworkTransactionPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -9,6 +9,10 @@ class TransactionPolicy < ApplicationPolicy
     true
   end
   def create?
+    true
+  end
+
+  def show?
     true
   end
 end

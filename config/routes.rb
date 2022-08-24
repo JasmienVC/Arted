@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :profiles
   resources :artworks do
-    resources :transactions
+    resources :artwork_transactions
   end
-  get "/confirm", to: "transactions#confirm_transaction", as: :confirm
+  get "/confirm", to: "artwork_transactions#confirm_transaction", as: :confirm
 
   # get 'transactions/index'
   # get 'transactions/show'

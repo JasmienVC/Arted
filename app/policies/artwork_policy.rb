@@ -29,4 +29,8 @@ class ArtworkPolicy < ApplicationPolicy
   def destroy?
     user.admin? ? true : record.user == user
   end
+
+  def confirm_transaction?
+    true
+  end
 end
