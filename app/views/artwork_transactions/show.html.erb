@@ -1,4 +1,14 @@
+<h1>transaction</h1>
 <div class="container my-5">
+  <h1>Confirm buying this Artwork:</h1>
+  <%= current_user.id %>
+  <br>
+  <%= @artwork = Artwork.find(params["artwork_id"]) %>
+
+  <%= link_to "Confirm Purchase", confirm_path(id: @artwork.id) %>
+
+</div>
+
   <div class="row">
     <div class="col-8">
       <% if @artwork.photos.size > 1 %>
@@ -32,18 +42,5 @@
       <p><%= @artwork.description %></p>
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
-      <%= link_to "Buy this artwork", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %>
     </div>
   </div>
-</div>
-
-<% if policy(@artwork).edit? %>
-  <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %>
-<% end %>
-
-<% if policy(@artwork).destroy? %>
-  <%= link_to "Delete",
-    artwork_path(@artwork),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<% end %>

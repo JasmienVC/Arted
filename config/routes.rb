@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  resources :artworks
   resources :profiles
-  resources :transactions
-
+  resources :artworks do
+    resources :artwork_transactions
+  end
+  get "/confirm", to: "artwork_transactions#confirm_transaction", as: :confirm
 
   # get 'transactions/index'
   # get 'transactions/show'
