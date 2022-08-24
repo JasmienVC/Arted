@@ -1,20 +1,27 @@
-<div class="grid-container">
-  <% @artworks.each do |artwork| %>
-    <div class="card">
-      <div class="artist-infos">
-        <p><%= artwork.user.email %></p>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
-      </div>
-      <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
-      <div class="artwork">
-        <div class="artwork-infos">
-          <h2><%= artwork.title %></h2>
-          <p><%= artwork.description %></p>
+<div class="m-2 p-2">
+  <div class= "mt-2 text-right">
+    <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
+  </div>
+  <div class="grid-container">
+    <% @artworks.each do |artwork| %>
+      <div class="card">
+        <div class="artist-infos">
+          <p><%= artwork.user.email %></p>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
         </div>
-        <h2 class="artwork-pricing"><%= artwork.price %></h2>
+        <div>
+          <%= link_to artwork_path(artwork) do %>
+            <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="artwork">
+          <div class="artwork-infos">
+            <h2><%= artwork.title %></h2>
+            <p><%= artwork.description %></p>
+          </div>
+          <h2 class="artwork-pricing"><%= artwork.price %></h2>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %>
