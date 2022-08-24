@@ -10,7 +10,9 @@
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
         </div>
         <div>
-          <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <%= link_to artwork_path(artwork) do %>
+            <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
         </div>
         <div class="artwork">
           <div class="artwork-infos">
