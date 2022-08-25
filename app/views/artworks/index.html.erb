@@ -18,16 +18,18 @@
   <div class="grid-container">
     <% @artworks.each do |artwork| %>
       <div class="card">
+
         <div class="artist-infos">
           <p><%= artwork.profile.name %></p>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
+          <%= link_to profile_path(artwork.user) do %>
+            <div class= "avatar"><%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %></div>
+          <% end %>
         </div>
         <div>
           <%= link_to artwork_path(artwork) do %>
             <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% end %>
         </div>
-
 
         <div class="general">
           <div>
@@ -39,6 +41,7 @@
       </div>
     <% end %>
   </div>
+
   <div class="text-center">
     <h1>Artists</h1>
   </div>
