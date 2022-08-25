@@ -34,7 +34,27 @@
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
       <% if !policy(@artwork).edit? %>
-        <%= link_to "Buy this artwork", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Buy this artwork
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Please confirm your purchase</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to buy? The artist will confirm and ship your artwork within 24h.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                <button type="button" class="btn btn-primary"><%= link_to "Buy now", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %></button>
+              </div>
+            </div>
+          </div>
+        </div>
         <br>
         <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
         <br>
@@ -49,7 +69,6 @@
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
         %>
       <% end %>
-      <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
       <br>
       <%= link_to "Back to results", artworks_path %>
     </div>
