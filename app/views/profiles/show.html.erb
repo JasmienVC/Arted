@@ -8,7 +8,10 @@
     <div class="col-8">
       <h1><%= @profile.name %></h1>
       <p><%= @profile.bio %></p>
-      <%= mail_to @profile.user.email, "Contact #{@profile.name}" %>
+      <%# doesn't show the Contact link if you're on your own profile %>
+      <% if !policy(@profile).edit? %>
+        <%= mail_to @profile.user.email, "Contact #{@profile.name}" %>
+      <% end %>
       <% if @profile.name %>
         <% if policy(@profile).edit? %>
           <%= link_to "Edit your profile", edit_profile_path(@profile) %>
