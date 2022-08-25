@@ -1,5 +1,6 @@
 <div class="container my-5">
   <div class="row">
+  <% if @profile.artworks.first %>
     <div class="col-4">
       <% if @profile.photo.key? %>
       <div><%= cl_image_tag @profile.photo.key, crop: :scale %></div>
@@ -14,31 +15,35 @@
       <% end %>
         <% if policy(@profile).edit? %>
           <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+          <br>
+          <%= link_to "Delete your Account", @profile, data: { turbo_method: :delete } %>
         <% end %>
-      <h2>Artworks:</h2>
-      <% @profile.artworks.each do |artwork| %>
-        <div class="card">
-          <div class="artist-infos">
-            <p><%= artwork.user.email %></p>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
-          </div>
-          <div>
-            <%= link_to artwork_path(artwork) do %>
-              <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
-            <% end %>
-          </div>
-          <div class="artwork">
-            <div class="artwork-infos">
-              <h2><%= artwork.title %></h2>
-              <p><%= artwork.description %></p>
+        <h2>Artworks:</h2>
+        <% @profile.artworks.each do |artwork| %>
+          <div class="card">
+            <div class="artist-infos">
+              <p><%= artwork.user.email %></p>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
             </div>
-            <h2 class="artwork-pricing"><%= artwork.price %></h2>
+            <div>
+              <%= link_to artwork_path(artwork) do %>
+                <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+            <div class="artwork">
+              <div class="artwork-infos">
+                <h2><%= artwork.title %></h2>
+                <p><%= artwork.description %></p>
+              </div>
+              <h2 class="artwork-pricing"><%= artwork.price %></h2>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
+  <% else %>
+    <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+    <br>
+    <%= link_to "Delete your Account", @profile, data: { turbo_method: :delete } %>
+  <% end %>
 </div>
-
-
-<%= link_to "Delete your Account", @profile, method: :delete if policy(@profile).destroy? %>
