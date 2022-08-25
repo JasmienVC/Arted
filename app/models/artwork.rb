@@ -4,5 +4,13 @@ class Artwork < ApplicationRecord
   has_one :artwork_transaction
   has_many_attached :photos
   include PgSearch::Model
-  multisearchable against: %i[title description user]
+  # multisearchable against: %i[title description]
+  pg_search_scope :artwork_artist_search,
+  against: [ :title, :description ],
+  associated_against: {
+    user: [:name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

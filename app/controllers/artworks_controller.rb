@@ -22,7 +22,12 @@ class ArtworksController < ApplicationController
 
   def index
     @artworks = policy_scope(Artwork)
-    @artworks = Artwork.all
+    if params[:query].present?
+      @artworks = Artwork.artwork_artist_search(params[:query])
+      @profiles = @artworks.map{ |art| art.user.profile }
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def edit

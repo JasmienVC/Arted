@@ -11,6 +11,11 @@
     <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
   </div>
   <div class="grid-container">
+    <% if @profiles %>
+      <% @profiles.each do |profile| %>
+        <%= profile.name %>
+      <% end %>
+    <% end %>
     <% @artworks.each do |artwork| %>
       <div class="card">
         <div class="artist-infos">
