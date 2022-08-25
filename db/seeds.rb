@@ -65,7 +65,7 @@ def make_random_artwork(random_user_id, artwork_photo)
   artwork = Artwork.new(title: Faker::Emotion.noun.capitalize, description: Faker::Lorem.paragraph(sentence_count: 5))
   artwork.photos.attach(io: artwork_photo, filename: artwork.title, content_type: "image/jpg")
   artwork.user_id = random_user_id
-  artwork.price = Faker::Number.between(from: 400, to: 3000)
+  artwork.price = Faker::Number.between(from: 100, to: 1000).to_i
   artwork.shipping_costs = 9.99
   artwork.save
   puts "user_id: #{artwork.user_id} - Artwork created: #{artwork.title}  - saved?: #{artwork.save} - id: #{artwork.id}"
