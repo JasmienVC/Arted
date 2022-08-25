@@ -9,7 +9,7 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
     <div class= "mt-4">
-      <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
+      <p><%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-primary" if policy(Artwork).new? %></p>
     </div>
   </div>
   <div class="text-center">
@@ -19,7 +19,7 @@
     <% @artworks.each do |artwork| %>
       <div class="card">
         <div class="artist-infos">
-          <p><%= artwork.user.email %></p>
+          <p><%= artwork.profile.name %></p>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
         </div>
         <div>
@@ -27,6 +27,8 @@
             <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% end %>
         </div>
+
+
         <div class="general">
           <div>
             <h2><%= artwork.title %></h2>

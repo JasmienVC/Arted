@@ -49,6 +49,9 @@
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
         %>
       <% end %>
+      <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
+      <br>
+      <%= link_to "Back to results", artworks_path %>
     </div>
   </div>
 </div>
