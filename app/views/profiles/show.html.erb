@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row">
-  <% if @profile.artworks.first %>
+  <% if @profile.name.present? %>
     <div class="col-4">
       <% if @profile.photo.key? %>
       <div><%= cl_image_tag @profile.photo.key, crop: :scale %></div>
