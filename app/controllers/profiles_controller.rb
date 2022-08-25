@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     authorize @profile
+    # raise
   end
 
   def edit
