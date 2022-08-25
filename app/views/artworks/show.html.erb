@@ -36,6 +36,8 @@
       <%= link_to "Buy this artwork", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %>
       <br>
       <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
+      <br>
+      <%= link_to "Back to results", artworks_path %>
     </div>
   </div>
 </div>
