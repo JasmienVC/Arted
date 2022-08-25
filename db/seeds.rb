@@ -5,6 +5,7 @@ puts "cleaning database...."
 Profile.destroy_all
 Artwork.destroy_all
 User.destroy_all
+Transaction.destroy_all
 
 puts "making admin user..."
 admin = User.new
@@ -13,7 +14,6 @@ admin.password = "123456"
 admin.save!
 
 ######### Artworks seeds:
-# should change this to the cloudinary photo codes at some point
 artworks = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330810/seeds/7g14doghnwc1uh2sg0xfz837ftfd.jpg",
             "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330814/seeds/r2vdzjwg4bxvesi8zhxu8q4sw526.jpg",
             "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330817/seeds/9mrxd8ku47yurs4vc0dxmdl6d0u7.jpg",
