@@ -21,11 +21,11 @@ artworks_photos = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v166133081
             "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330819/seeds/f1wkf2jp1xi17bb3nwgc33en5ycm.jpg",
                    "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330822/seeds/tv4m6nrqg1wssnhm5rkbu2o06y7p.jpg"]
 
-artists_photos = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330812/seeds/ur89m1htbvwb2jutxt19v61cppuf.png",
-                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330815/seeds/ojf4fvzyq9mpfepr6hs9htmtqb2e.jpg",
-                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg",
-                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg",
-                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661330818/seeds/k1j8ie38l8rfx8moqk434z04oxrw.jpg"]
+artists_photos = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410813/seeds/toa-heftiba-0rlfiRSdVzU-unsplash_dk6tht.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410817/seeds/frankie-cordoba-fPYJeMmYWM4-unsplash_tp7ula.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410820/seeds/atelier-unes-aYwJeBcFEQQ-unsplash_u8qket.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410823/seeds/jonathan-borba-lsGZlrdvd_c-unsplash_wydla6.jpg",
+                  "https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410831/seeds/olga-guryanova-Th-i7Z1ufK8-unsplash_oxbdy3.jpg"]
 
 def make_random_user
   # makes a new random user and returns the user
