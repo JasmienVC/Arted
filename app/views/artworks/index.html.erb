@@ -27,12 +27,12 @@
             <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% end %>
         </div>
-        <div class="artwork">
-          <div class="artwork-infos">
+        <div class="general">
+          <div>
             <h2><%= artwork.title %></h2>
             <p><%= artwork.description %></p>
           </div>
-          <h2 class="artwork-pricing"><%= artwork.price %></h2>
+          <h2><%= artwork.price %></h2>
         </div>
       </div>
     <% end %>
@@ -49,8 +49,8 @@
                 <%= cl_image_tag profile.photo.key, height: 300, width: 400, crop: :fill %>
               <% end %>
             </div>
-            <div class="artwork">
-              <div class="artwork-infos">
+            <div class="general">
+              <div>
                 <h2><%= profile.name %></h2>
                 <p><%= profile.bio %></p>
               </div>
