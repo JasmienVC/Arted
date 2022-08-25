@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   def home
     @artworks = policy_scope(Artwork)
     @artworks = Artwork.limit(6)
+    # raise
   end
 end
