@@ -1,21 +1,21 @@
-<div class="m-2 p-2">
-  <%= form_with url: artworks_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an artwork or artist"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-  <div class= "mt-2 text-right">
-    <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
+<div class="m-2 p-4">
+  <div class="p-2">
+    <%= form_with url: artworks_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find an artwork or artist"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <div class= "mt-4">
+      <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
+    </div>
+  </div>
+  <div class="text-center">
+    <h1>Artworks</h1>
   </div>
   <div class="grid-container">
-    <% if @profiles %>
-      <% @profiles.each do |profile| %>
-        <%= profile.name %>
-      <% end %>
-    <% end %>
     <% @artworks.each do |artwork| %>
       <div class="card">
         <div class="artist-infos">
@@ -27,14 +27,36 @@
             <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% end %>
         </div>
-        <div class="artwork">
-          <div class="artwork-infos">
+        <div class="general">
+          <div>
             <h2><%= artwork.title %></h2>
             <p><%= artwork.description %></p>
           </div>
-          <h2 class="artwork-pricing"><%= artwork.price %></h2>
+          <h2><%= artwork.price %></h2>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <h1>Artists</h1>
+  </div>
+  <div class="grid-container">
+    <% if @profiles %>
+      <% @profiles.each do |profile| %>
+          <div class="card">
+            <div>
+              <%= link_to profile_path(profile) do %>
+                <%= cl_image_tag profile.photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+            <div class="general">
+              <div>
+                <h2><%= profile.name %></h2>
+                <p><%= profile.bio %></p>
+              </div>
+            </div>
+          </div>
+      <% end %>
     <% end %>
   </div>
 </div>
