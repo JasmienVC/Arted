@@ -23,8 +23,10 @@ class ArtworkTransactionsController < ApplicationController
     @transaction.user = current_user
 
     if @transaction.save
+      artwork.artwork_transaction.paid!
+      authorize artwork
       # redirects to the artwork transaction show page
-      redirect_to artwork_artwork_transaction_path(artwork, @transaction), status: :see_other
+      redirect_to artwork_artwork_transaction_path(artwork, @transaction), notice: "Order placed", status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
