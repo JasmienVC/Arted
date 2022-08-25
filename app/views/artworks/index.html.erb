@@ -1,4 +1,12 @@
 <div class="m-2 p-2">
+  <%= form_with url: artworks_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an artwork or artist"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class= "mt-2 text-right">
     <p><%= link_to "Upload your artwork", new_artwork_path if policy(Artwork).new? %></p>
   </div>
