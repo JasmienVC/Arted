@@ -21,18 +21,14 @@
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
           <li class="nav-item">
-              <% if current_user.profile %>
-                <%= link_to "My Profile", profile_path(current_user.profile), data: {turbo_method: :delete}, class: "nav-link" %>
-              <% end %>
+                <%= link_to "My Profile", profile_path(current_user.profile), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <% if current_user.profile %>
               <% if current_user.profile.photo.key %>
                 <%= cl_image_tag current_user.profile.photo.key, width: 200, height: 200, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
               <% else %>
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
               <% end %>
-            <% end %>
           </li>
         <% else %>
           <li class="nav-item">

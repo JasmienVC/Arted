@@ -9,6 +9,15 @@
       <h1><%= @profile.name %></h1>
       <p><%= @profile.bio %></p>
       <%= mail_to @profile.user.email, "Contact #{@profile.name}" %>
+      <% if @profile.name %>
+        <% if policy(@profile).edit? %>
+          <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+        <% end %>
+        <% else %>
+        <% if policy(@profile).edit? %>
+          <%= link_to "Make a new profile", edit_profile_path(@profile) %>
+        <% end %>
+      <% end %>
       <h2>Artworks:</h2>
       <% @profile.artworks.each do |artwork| %>
         <div class="card">
@@ -33,15 +42,5 @@
     </div>
   </div>
 </div>
-
-<% if @profile.name %>
-  <% if policy(@profile).edit? %>
-    <%= link_to "Edit your profile", edit_profile_path(@profile) %>
-  <% end %>
-<% else %>
-  <% if policy(@profile).edit? %>
-    <%= link_to "Make a new profile", edit_profile_path(@profile) %>
-  <% end %>
-<% end %>
 
 <%= button_to "Delete your profile", @profile, method: :delete if policy(@profile).destroy? %>
