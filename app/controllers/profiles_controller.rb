@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find(params[:id])
     authorize @profile
-    @profile.destroy
+    @profile.user.destroy
     redirect_to root_path, status: :see_other
   end
 

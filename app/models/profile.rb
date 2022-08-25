@@ -8,5 +8,5 @@ class Profile < ApplicationRecord
   def set_name_to_user
     self.user.update(name: name)
   end
-  
+
 end
