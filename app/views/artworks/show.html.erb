@@ -33,20 +33,22 @@
       <h2>Artist: <%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
-      <%= link_to "Buy this artwork", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %>
+      <% if !policy(@artwork).edit? %>
+        <%= link_to "Buy this artwork", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %>
+        <br>
+        <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
+        <br>
+      <% end %>
+      <% if policy(@artwork).edit? %>
+        <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %>
+      <% end %>
       <br>
-      <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
+      <% if policy(@artwork).destroy? %>
+        <%= link_to "Delete",
+          artwork_path(@artwork),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      <% end %>
     </div>
   </div>
 </div>
-
-<% if policy(@artwork).edit? %>
-  <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %>
-<% end %>
-
-<% if policy(@artwork).destroy? %>
-  <%= link_to "Delete",
-    artwork_path(@artwork),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<% end %>
