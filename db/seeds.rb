@@ -1,3 +1,4 @@
+# require "pry-byebug"
 require "open-uri"
 # require "faker"
 
@@ -32,35 +33,37 @@ def make_random_user
   user.email = Faker::Internet.email
   user.password = '123456'
   user.save
-  puts "User created: #{user.email} - #{user.password} - saved?: #{user.save}"
+  puts "user_id: #{user.id} - User created: - #{user.email} - #{user.password} - saved?: - #{user.save}"
   user
 end
 
 def make_random_artist_profile(random_user_id, artist_photo)
   # find the artists profile, because it was already created at user creation
   artist_profile = Profile.find(random_user_id)
-  artist_profile.name = "coolerKünster#{random_user_id}"
-  artist_profile.bio = "lalalalalalal lorem ipsum dolor"
+  artist_profile.name = Faker::Name.name
+  artist_profile.bio = Faker::Lorem.paragraph(sentence_count: 10)
   artist_profile.photo.attach(io: artist_photo, filename: "profilepic.jpg", content_type: "image/jpg")
   artist_profile.user_id = random_user_id
   artist_profile.save
-  puts "ArtistProfile created: #{artist_profile.name} - user_id: #{artist_profile.user_id} - saved?: #{artist_profile.save}"
+  puts "user_id: #{artist_profile.user_id} - ArtistProfile created: #{artist_profile.name}  - saved?: #{artist_profile.save} - id: #{artist_profile.id}"
 end
 
 def make_random_artwork(random_user_id, artwork_photo)
-  artwork = Artwork.new(title: "ART", description: "this is the description of this cool artwork")
-  artwork.photos.attach(io: artwork_photo, filename: "art.jpg", content_type: "image/jpg")
+  artwork = Artwork.new(title: Faker::Emotion.noun.capitalize, description: Faker::Lorem.paragraph(sentence_count: 5))
+  artwork.photos.attach(io: artwork_photo, filename: artwork.title, content_type: "image/jpg")
   artwork.user_id = random_user_id
   artwork.price = 950
   artwork.shipping_costs = 2.99
   artwork.save
+  puts "user_id: #{artwork.user_id} - Artwork created: #{artwork.title}  - saved?: #{artwork.save} - id: #{artwork.id}"
+  puts ""
 end
 
 puts "populating database..."
 n = 0
 5.times do
+  # makes a random user an assigns its it to random_user_id
   random_user_id = make_random_user.id
-  p "random_user_id: #{random_user_id}"
 
   artwork_photo = URI.open(artworks_photos[n])
   artist_photo = URI.open(artists_photos[n])
