@@ -5,14 +5,16 @@ class ArtworkTransactionPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
   def new?
     true
   end
+
   def create?
     true
   end
 
   def show?
-    true
+    user.admin? ? true : record.user == user
   end
 end
