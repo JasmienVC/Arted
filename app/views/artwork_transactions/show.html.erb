@@ -1,5 +1,14 @@
 <div class="container my-5">
   <div class="row">
+    <div class="col-4 jumbotron">
+      <h1 class="display-4">Thank you!</h1>
+      <p class="lead">We hope you enjoy your new artwork: <strong><%= @transaction.artwork.title %></strong>. With your purchase at Arted, you are supporting up-and-coming artists from all over the world.</p>
+      <hr class="my-4">
+      <p>Check out more artworks of <%= @transaction.artwork.user.name %> <%= link_to "here", profile_path(@transaction.artwork.user)%>.</p>
+      <p class="lead">
+        <button type="button" class="btn btn-secondary"><%= link_to "Gallery", profile_path %></button>
+      </p>
+    </div>
     <div class="col-8">
       <% if @artwork.photos.size > 1 %>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -26,11 +35,6 @@
         <%#= cl_image_tag @artwork.photos.first.key, crop: :fill %>
         <div class="carousel-image" style="background-image: url('<%= cl_image_path @artwork.photos.first.key, crop: :fill %>')"></div>
       <% end %>
-    </div>
-    <div class="col-4 text-center d-flex flex-column justify-content-between">
-      <h1>You are awesome!</h1>
-      <h5>Thank you for buying <strong><%= @transaction.artwork.title %></strong>. With your purchase, you are supporting up-and-coming artists from all over the world.</h5>
-      <h5>Check out more artworks of <%= @transaction.artwork.user.name %> <%= link_to "here", profile_path(@transaction.artwork.user)%>.</h5>
     </div>
   </div>
 </div>
