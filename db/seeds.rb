@@ -57,6 +57,7 @@ def make_random_artist_profile(random_user_id, artist_photo, artist_name)
   artist_profile.photo.attach(io: artist_photo, filename: "profilepic.jpg", content_type: "image/jpg")
   artist_profile.user_id = random_user_id
   artist_profile.save
+  artist_profile.set_name_to_user
   puts "user_id: #{artist_profile.user_id} - ArtistProfile created: #{artist_profile.name}  - saved?: #{artist_profile.save} - id: #{artist_profile.id}"
 end
 
