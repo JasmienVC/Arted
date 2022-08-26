@@ -68,6 +68,7 @@
   <% else %>
     <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted", data: { turbo: :false }, method: :get %>
     <br>
-    <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-arted", method: :delete %>
+    <br>
+    <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-red", method: :delete %>
   <% end %>
 </div>
