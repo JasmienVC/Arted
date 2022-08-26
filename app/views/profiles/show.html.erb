@@ -3,7 +3,7 @@
   <% if @profile.name.present? %>
     <div class="col-lg-4">
       <% if @profile.photo.key? %>
-        <div class="h-75">
+        <div class="h-100">
 
           <div class="card-category h-100 w-100" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
                               url('<%= cl_image_path @profile.photo.key, crop: :scale %>')"></div>
@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-8 ">
       <h1><%= @profile.name %></h1>
       <p><%= @profile.bio %></p>
       <%# doesn't show the Contact link if you're on your own profile %>
@@ -21,17 +21,18 @@
         <% if policy(@profile).edit? %>
           <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted my-1", data: { turbo: :false }, method: :get %>
           <%= button_to "Back to all Artworks", artworks_path, data: { turbo: :false }, class: "btn-arted my-1", method: :get %>
-          <%= button_to "Upload an Artwork", new_artwork_path, class: "btn-arted my-1", data: { turbo: :false }, method: :get if policy(Artwork).new? %>
-          <br><br>
-          <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-red", method: :delete %>
+          <div class="d-flex justify-content-between">
+            <%= button_to "Upload an Artwork", new_artwork_path, class: "btn-arted my-1", data: { turbo: :false }, method: :get if policy(Artwork).new? %>
+            <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-red text-right", method: :delete %>
+          </div>
           <br>
         <% end %>
         <br><br>
     </div>
 
 
-    <div class="row">
-      <h2>Artworks:</h2>
+    <div class="row py-5">
+      <h2>My Artworks:</h2>
       <div class="py-2"></div>
       <% @profile.artworks.each_slice(3) do |artworks| %>
         <div class="row">
