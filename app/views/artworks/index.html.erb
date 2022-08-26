@@ -48,26 +48,44 @@
     <% end %>
   </div>
 
-  <div class="text-center">
-    <h1>Artists</h1>
-  </div>
 
-  <div class="grid-container">
-    <% if @profiles %>
-      <% @profiles.each do |profile| %>
-          <div class="card">
-            <div>
-              <%= link_to profile_path(profile) do %>
-                <%= cl_image_tag profile.photo.key, height: 300, width: 400, crop: :fill %>
-              <% end %>
-            </div>
-            <div class="general">
-              <div>
-                <h2><%= profile.name %></h2>
-                <p><%= profile.bio %></p>
+<div class="container">
+
+
+      <% if @profiles %>
+
+    <div class="text-center">
+      <h1>Artists</h1>
+    </div>
+        <% @profiles.each_slice(3) do |profiles| %>
+        <div class="row">
+          <% profiles.each do |profile| %>
+              <div class="col-lg-4">
+                <div class="card mb-4">
+                  <div class="artist-infos">
+                    <p><%= profile.name %></p>
+                    <%= link_to profile_path(profile.user) do %>
+                      <div class= "avatar">
+                        <% if profile.photo.key %>
+                          <%= cl_image_tag profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="h-75">
+                    <%= link_to profile_path(profile) do %>
+                    <div class="card-category h-100 w-100" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+                                url('<%= cl_image_path profile.photo.key, crop: :scale %>')"></div>
+                    <% end %>
+                  </div>
+                  <div class="artist-infos">
+                    <h2><%= profile.name %></h2>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
+      <% end %>
+</div>
