@@ -30,7 +30,7 @@
     <div class="col-4">
       <h1><%= @artwork.title %></h1>
       <p><%= @artwork.description %></p>
-      <h2>Artist: <%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
+      <h2><%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
       <% if !policy(@artwork).edit? %>
