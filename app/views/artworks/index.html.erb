@@ -10,11 +10,11 @@
             class: "form-control",
             placeholder: "Find an artwork or artist"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-info" %>
         <% end %>
       </div>
       <div class="col-4 d-flex justify-content-end">
-          <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-primary" if policy(Artwork).new? %>
+          <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-warning" if policy(Artwork).new? %>
       </div>
     </div>
 
