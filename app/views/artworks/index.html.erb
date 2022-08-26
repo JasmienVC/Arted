@@ -16,6 +16,7 @@
       </div>
     </div>
     <div class="py-2"></div>
+    <h1>Artworks</h1><br>
     <% @artworks.each_slice(3) do |artworks| %>
       <div class="row">
         <% artworks.each do |artwork| %>
@@ -49,14 +50,9 @@
   </div>
 
 
-<div class="container">
-
-
+<div class="container py-4">
       <% if @profiles %>
-
-    <div class="text-center">
-      <h1>Artists</h1>
-    </div>
+      <br><h1>Artists</h1><br>
         <% @profiles.each_slice(3) do |profiles| %>
         <div class="row">
           <% profiles.each do |profile| %>
@@ -65,7 +61,6 @@
                   <div class="artist-infos">
                     <h2><%= profile.name %></h2>
                     <%= link_to profile_path(profile.user) do %>
-
                     <% end %>
                   </div>
                   <div class="h-100">
