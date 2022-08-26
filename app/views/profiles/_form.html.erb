@@ -3,6 +3,7 @@
     <%= f.input :name %>
     <%= f.input :bio %>
     <%= f.input :photo, as: :file %>
-    <span class=""><%= f.submit %></span>
+    <%= f.button :submit, class: "btn-arted" %>
+    <%= button_to "Back", profile_path(@profile), class: "btn btn-arted", data: {turbo: :false}, method: :get%>
   <% end %>
 </div>
