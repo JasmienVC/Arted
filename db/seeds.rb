@@ -30,7 +30,7 @@ artists_photos = ["https://res.cloudinary.com/dlpbxzb7o/image/upload/v1661410813
 artists_names = ["Cory Marquardt",
                  "PeteBronsson",
                  "Marie",
-                 "RembrandtWasBoringg",
+                 "Barbara Schütze",
                  "Ana Maradona"]
 
 artworks_titles = ["Moody Day",

@@ -62,7 +62,6 @@
           </div>
         </div>
       <% end %>
-
       <div class="d-flex justify-content-between">
         <% if policy(@artwork).edit? %>
           <%= button_to "Edit this artwork", edit_artwork_path(@artwork), class: "btn-arted", data: { turbo: :false }, method: :get %>
