@@ -33,6 +33,7 @@
       <h2><%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
       <h4>Price: <%= @artwork.price %>€</h4>
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
+      <%= button_to "Back to results", artworks_path, class: "btn-arted", data: { turbo: :false }, method: :get %>
       <% if !policy(@artwork).edit? %>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Buy this artwork
@@ -60,17 +61,18 @@
         <br>
       <% end %>
       <% if policy(@artwork).edit? %>
-        <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %>
+        <%= button_to "Edit this artwork", edit_artwork_path(@artwork), class: "btn-arted", data: { turbo: :false }, method: :get %>
       <% end %>
       <br>
       <% if policy(@artwork).destroy? %>
-        <%= link_to "Delete",
+        <br><br><br>
+        <%= link_to "Delete this Artwork",
           artwork_path(@artwork),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "delete"
         %>
       <% end %>
       <br>
-      <%= link_to "Back to results", artworks_path %>
     </div>
   </div>
 </div>
