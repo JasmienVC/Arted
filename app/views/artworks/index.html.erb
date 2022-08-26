@@ -63,23 +63,16 @@
               <div class="col-lg-4">
                 <div class="card mb-4">
                   <div class="artist-infos">
-                    <p><%= profile.name %></p>
+                    <h2><%= profile.name %></h2>
                     <%= link_to profile_path(profile.user) do %>
-                      <div class= "avatar">
-                        <% if profile.photo.key %>
-                          <%= cl_image_tag profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %>
-                        <% end %>
-                      </div>
+
                     <% end %>
                   </div>
-                  <div class="h-75">
+                  <div class="h-100">
                     <%= link_to profile_path(profile) do %>
                     <div class="card-category h-100 w-100" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
-                                url('<%= cl_image_path profile.photo.key, crop: :scale %>')"></div>
+                                url('<%= cl_image_path profile.photo.key, crop: :fill %>')"></div>
                     <% end %>
-                  </div>
-                  <div class="artist-infos">
-                    <h2><%= profile.name %></h2>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-8 ">
       <h1><%= @profile.name %></h1>
       <p><%= @profile.bio %></p>
       <%# doesn't show the Contact link if you're on your own profile %>
@@ -21,9 +21,10 @@
         <% if policy(@profile).edit? %>
           <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted my-1", data: { turbo: :false }, method: :get %>
           <%= button_to "Back to all Artworks", artworks_path, data: { turbo: :false }, class: "btn-arted my-1", method: :get %>
-          <%= button_to "Upload an Artwork", new_artwork_path, class: "btn-arted my-1", data: { turbo: :false }, method: :get if policy(Artwork).new? %>
-          <br><br><br><br><br>
-          <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-red text-right", method: :delete %>
+          <div class="d-flex justify-content-between">
+            <%= button_to "Upload an Artwork", new_artwork_path, class: "btn-arted my-1", data: { turbo: :false }, method: :get if policy(Artwork).new? %>
+            <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-red text-right", method: :delete %>
+          </div>
           <br>
         <% end %>
         <br><br>
