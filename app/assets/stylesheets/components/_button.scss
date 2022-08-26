@@ -5,11 +5,17 @@
   padding: 8px 24px;
   border-radius: 30px;
   font-weight: lighter;
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .btn-arted:hover {
   opacity: 1;
+  background-color: $spacegreen;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
 }
 
 .btn-red {
@@ -19,10 +25,17 @@
   border-radius: 30px;
   font-weight: lighter;
   background-color: $darkred;
+  opacity: 0.8;
 }
 
 .btn-red:hover {
   opacity: 1;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
+  background-color: $darkred;
 }
 
 .delete {
