@@ -42,7 +42,7 @@
     </div>
   </div>
   <% else %>
-    <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+    <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-ghost" %>
     <br>
     <%= link_to "Delete your Account", @profile, data: { turbo_method: :delete } %>
   <% end %>
