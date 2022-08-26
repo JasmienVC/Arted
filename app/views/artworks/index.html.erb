@@ -1,7 +1,5 @@
 
   <div class="container py-4">
-
-
     <div class="row py-4">
       <div class="col-lg-8 py-2">
         <%= form_with url: artworks_path, method: :get, class: "d-flex" do %>
@@ -17,18 +15,17 @@
           <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-warning" if policy(Artwork).new? %>
       </div>
     </div>
-
-<div class="py-2">    </div>
-
+    <div class="py-2"></div>
     <% @artworks.each_slice(3) do |artworks| %>
       <div class="row">
         <% artworks.each do |artwork| %>
-
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="artist-infos">
                   <p><%= artwork.profile.name %></p>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
+                  <%= link_to profile_path(artwork.user) do %>
+                    <div class= "avatar"><%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %></div>
+                  <% end %>
                 </div>
                 <div class="h-75">
                   <%= link_to artwork_path(artwork) do %>
@@ -44,11 +41,12 @@
         <% end %>
       </div>
     <% end %>
-
   </div>
+
   <div class="text-center">
     <h1>Artists</h1>
   </div>
+
   <div class="grid-container">
     <% if @profiles %>
       <% @profiles.each do |profile| %>
