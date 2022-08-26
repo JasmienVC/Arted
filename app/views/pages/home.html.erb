@@ -32,7 +32,9 @@
                   <p><%= artwork.profile.name %></p>
                   <%= link_to profile_path(artwork.user) do %>
                     <div class= "avatar">
-                      <%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %>
+                      <% if artwork.user.profile.photo.key %>
+                        <%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %>
+                      <% end %>
                     </div>
                   <% end %>
                 </div>
