@@ -6,7 +6,7 @@
       <hr class="my-4">
       <p>Check out more artworks of <%= @transaction.artwork.user.name %> <%= link_to "here", profile_path(@transaction.artwork.user)%>.</p>
       <p class="lead">
-        <button type="button" class="btn btn-secondary"><%= link_to "Gallery", profile_path %></button>
+        <%= button_to "Back to artworks", artworks_path, class: "btn-arted", data: {turbo: :false}, method: :get%>
       </p>
     </div>
     <div class="col-8">
