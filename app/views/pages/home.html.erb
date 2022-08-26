@@ -31,12 +31,15 @@
                 <div class="artist-infos">
                   <p><%= artwork.profile.name %></p>
                   <%= link_to profile_path(artwork.user) do %>
-                    <div class= "avatar"><%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %></div>
+                    <div class= "avatar">
+                      <%= cl_image_tag artwork.user.profile.photo.key, width: 250, height: 250, radius: 125, crop: :thumb, gravity: :face %>
+                    </div>
                   <% end %>
                 </div>
                 <div class="h-75">
                   <%= link_to artwork_path(artwork) do %>
-                    <%= cl_image_tag artwork.photos.first.key, crop: :fill %>
+                  <div class="card-category h-100 w-100" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+                              url('<%= cl_image_path artwork.photos.first.key, crop: :scale %>')"></div>
                   <% end %>
                 </div>
                 <div class="artist-infos">
