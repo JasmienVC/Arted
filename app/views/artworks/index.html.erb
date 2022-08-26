@@ -3,7 +3,7 @@
 
 
     <div class="row py-4">
-      <div class="col-8">
+      <div class="col-lg-8 py-2">
         <%= form_with url: artworks_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
@@ -13,7 +13,7 @@
           <%= submit_tag "Search", class: "btn btn-info" %>
         <% end %>
       </div>
-      <div class="col-4 d-flex justify-content-end">
+      <div class="col-lg-4 py-2 d-flex justify-content-center">
           <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-warning" if policy(Artwork).new? %>
       </div>
     </div>
@@ -30,17 +30,13 @@
                   <p><%= artwork.profile.name %></p>
                   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-user avatar-bordered" />
                 </div>
-                <div>
+                <div class="h-75">
                   <%= link_to artwork_path(artwork) do %>
-                    <%= cl_image_tag artwork.photos.first.key, height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag artwork.photos.first.key, crop: :fill %>
                   <% end %>
                 </div>
-                <div class="general">
-                  <div>
-                    <h2><%= artwork.title %></h2>
-                    <p><%= artwork.description %></p>
-                  </div>
-                  <h2><%= "#{artwork.price.to_i}€" %></h2>
+                <div class="artist-infos">
+                  <h2><%= artwork.title %></h2>
                 </div>
               </div>
             </div>
