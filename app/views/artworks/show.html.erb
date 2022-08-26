@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-8">
+    <div class="col-7">
       <% if @artwork.photos.size > 1 %>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -27,7 +27,7 @@
           <div class="carousel-image" style="background-image: url('<%= cl_image_path @artwork.photos.first.key, crop: :fill %>'); background-position: top"></div>
       <% end %>
     </div>
-    <div class="col-4 jumbotron px-4">
+    <div class="col-5 px-4">
       <h2 class="display-4"><%= @artwork.title %> by:</h2>
       <h2 class="display-4"><%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
       <br>
@@ -35,7 +35,7 @@
       <p class="lead">Price: €<%= @artwork.price.to_i %></p>
       <p class="lead">Shipping: €<%= @artwork.shipping_costs %></p>
       <hr class="my-4">
-        <p><%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %></p>
+        <p><%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}", class: "btn btn-arted" %></p>
       <p class="lead">
         <%= button_to "Back to results", artworks_path, class: "btn-arted", data: {turbo: :false}, method: :get%>
       </p>
@@ -62,18 +62,19 @@
           </div>
         </div>
       <% end %>
-      <% if policy(@artwork).edit? %>
-        <%= button_to "Edit this artwork", edit_artwork_path(@artwork), class: "btn-arted", data: { turbo: :false }, method: :get %>
-      <% end %>
-      <br>
-      <% if policy(@artwork).destroy? %>
-        <br><br><br>
-        <%= link_to "Delete this Artwork",
-          artwork_path(@artwork),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "delete"
-        %>
-      <% end %>
+
+      <div class="d-flex justify-content-between">
+        <% if policy(@artwork).edit? %>
+          <%= button_to "Edit this artwork", edit_artwork_path(@artwork), class: "btn-arted", data: { turbo: :false }, method: :get %>
+        <% end %>
+        <% if policy(@artwork).destroy? %>
+          <%= link_to "Delete this Artwork",
+            artwork_path(@artwork),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "btn-red"
+          %>
+        <% end %>
+      </div>
       <br>
     </div>
   </div>
