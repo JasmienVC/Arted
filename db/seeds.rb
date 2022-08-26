@@ -33,6 +33,12 @@ artists_names = ["Cory Marquardt",
                  "RembrandtWasBoringg",
                  "Ana Maradona"]
 
+artworks_titles = ["Moody Day",
+                   "The Power lies in Movement",
+                   "Moscow at Sunrise",
+                   "Lake",
+                   "Memeory of Spain"]
+
 artists_emails = ["cory@marquardt.com",
                   "petebronsson@gmail.com",
                   "marie@hotmail.de",
@@ -61,8 +67,8 @@ def make_random_artist_profile(random_user_id, artist_photo, artist_name)
   puts "user_id: #{artist_profile.user_id} - ArtistProfile created: #{artist_profile.name}  - saved?: #{artist_profile.save} - id: #{artist_profile.id}"
 end
 
-def make_random_artwork(random_user_id, artwork_photo)
-  artwork = Artwork.new(title: Faker::Emotion.noun.capitalize, description: Faker::Lorem.paragraph(sentence_count: 5))
+def make_random_artwork(random_user_id, artwork_photo, artwork_title)
+  artwork = Artwork.new(title: artwork_title, description: Faker::Lorem.paragraph(sentence_count: 5))
   artwork.photos.attach(io: artwork_photo, filename: artwork.title, content_type: "image/jpg")
   artwork.user_id = random_user_id
   artwork.price = Faker::Number.between(from: 100, to: 1000).to_i
@@ -82,10 +88,11 @@ n = 0
 
   artwork_photo = URI.open(artworks_photos[n])
   artist_photo = URI.open(artists_photos[n])
+  artwork_title = artworks_titles[n]
 
 
   make_random_artist_profile(random_user_id, artist_photo, artist_name)
-  make_random_artwork(random_user_id, artwork_photo)
+  make_random_artwork(random_user_id, artwork_photo, artwork_title)
 
   n += 1
 end

@@ -1,18 +1,9 @@
 .card {
-  margin: 30px;
-  height: 550px;
-  width: 400px;
+  height: 50vh;
+  width: 100%;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card > img {
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 75%;
-  width: 100%;
-  object-fit: cover;
 }
 
 .card h2 {
@@ -44,7 +35,7 @@
 }
 
 .card .artist-infos {
-  padding: 16px;
+  padding: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
