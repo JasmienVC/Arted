@@ -14,9 +14,9 @@
         <%= mail_to @profile.user.email, "Contact #{@profile.name}" %>
       <% end %>
         <% if policy(@profile).edit? %>
-          <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-ghost", data: { turbo: :false }, method: :get %>
+          <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted", data: { turbo: :false }, method: :get %>
           <br>
-          <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-ghost", method: :delete %>
+          <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-arted", method: :delete %>
         <% end %>
         <h2>Artworks:</h2>
         <% @profile.artworks.each do |artwork| %>
@@ -42,8 +42,8 @@
     </div>
   </div>
   <% else %>
-    <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-ghost", data: { turbo: :false }, method: :get %>
+    <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted", data: { turbo: :false }, method: :get %>
     <br>
-    <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-ghost", method: :delete %>
+    <%= button_to "Delete your Account", @profile, data: { turbo: :false }, class: "btn-arted", method: :delete %>
   <% end %>
 </div>
