@@ -5,7 +5,7 @@
     <%= f.input :price %>
     <%= f.input :shipping_costs %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <span class="btn-secondary"><%= f.submit %></span>
-    <%= button_to "Back", artworks_path, class: "btn-secondary", data: {turbo: :false}, method: :get%>
+    <%= f.button :submit, class: "btn-arted" %>
+    <%= button_to "Back", artworks_path, class: "btn btn-arted", data: {turbo: :false}, method: :get%>
   <% end %>
 </div>
