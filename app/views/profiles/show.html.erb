@@ -16,7 +16,7 @@
       <p><%= @profile.bio %></p>
       <%# doesn't show the Contact link if you're on your own profile %>
       <% if !policy(@profile).edit? %>
-        <%= mail_to @profile.user.email, "Contact #{@profile.name}" %>
+        <%= mail_to @profile.user.email, "Contact #{@profile.name}", class: "btn btn-arted" %>
       <% end %>
         <% if policy(@profile).edit? %>
           <%= button_to "Edit your profile", edit_profile_path(@profile), class: "btn-arted my-1", data: { turbo: :false }, method: :get %>
