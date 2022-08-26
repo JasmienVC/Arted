@@ -24,3 +24,15 @@
 .btn-red:hover {
   opacity: 1;
 }
+
+.delete {
+  color: white;
+  background-color: $darkred;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.delete:hover {
+  text-decoration: none;
+  color: white;
+}
