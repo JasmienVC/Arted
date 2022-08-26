@@ -24,18 +24,23 @@
         </div>
       <% else %>
         <%#= cl_image_tag @artwork.photos.first.key, crop: :fill %>
-        <div class="carousel-image" style="background-image: url('<%= cl_image_path @artwork.photos.first.key, crop: :fill %>')"></div>
+          <div class="carousel-image" style="background-image: url('<%= cl_image_path @artwork.photos.first.key, crop: :fill %>'); background-position: top"></div>
       <% end %>
     </div>
-    <div class="col-4">
-      <h1><%= @artwork.title %></h1>
-      <p><%= @artwork.description %></p>
-      <h2><%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
-      <h4>Price: <%= @artwork.price %>€</h4>
-      <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
-      <%= button_to "Back to results", artworks_path, class: "btn-arted", data: { turbo: :false }, method: :get %>
+    <div class="col-4 jumbotron px-4">
+      <h2 class="display-4"><%= @artwork.title %> by:</h2>
+      <h2 class="display-4"><%= link_to @artwork.profile.name, profile_path(@artwork.profile) %></h2>
+      <br>
+      <p class="lead"><%= @artwork.description %></p>
+      <p class="lead">Price: €<%= @artwork.price.to_i %></p>
+      <p class="lead">Shipping: €<%= @artwork.shipping_costs %></p>
+      <hr class="my-4">
+        <p><%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %></p>
+      <p class="lead">
+        <%= button_to "Back to results", artworks_path, class: "btn-arted", data: {turbo: :false}, method: :get%>
+      </p>
       <% if !policy(@artwork).edit? %>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-arted" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Buy this artwork
         </button>
         <!-- Modal -->
@@ -50,15 +55,12 @@
                 Are you sure you want to buy? The artist will confirm and ship your artwork within 24h.
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-secondary"><%= link_to "Buy now", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %></button>
+                <button type="button" class="btn btn-arted" data-bs-dismiss="modal">Back</button>
+                <%= button_to "Buy now", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post }, class: "btn-arted" %>
               </div>
             </div>
           </div>
         </div>
-        <br>
-        <%= mail_to @artwork.user.email, "Contact #{@artwork.profile.name}" %>
-        <br>
       <% end %>
       <% if policy(@artwork).edit? %>
         <%= button_to "Edit this artwork", edit_artwork_path(@artwork), class: "btn-arted", data: { turbo: :false }, method: :get %>
