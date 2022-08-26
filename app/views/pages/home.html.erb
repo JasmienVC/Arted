@@ -2,7 +2,7 @@
   <div class="overlay">
     <h1>Arted helps you find the perfect <strong>artwork</strong> from your <strong>local artist</strong>!</h1>
     <p>Discover our artists and their artworks or sell your own creations.</p>
-    <%= link_to "Start discovering", artworks_path, class: "btn btn-ghost" %>
+    <%= link_to "Start discovering", artworks_path, class: "btn btn-arted" %>
   </div>
 </div>
 
@@ -15,11 +15,11 @@
             class: "form-control",
             placeholder: "Find an artwork or artist"
           %>
-          <%= submit_tag "Search", class: "btn btn-info" %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
         <% end %>
       </div>
       <div class="col-lg-4 py-2 d-flex justify-content-center">
-          <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-warning" if policy(Artwork).new? %>
+          <%= link_to "Upload your artwork", new_artwork_path, class: "btn btn-arted" if policy(Artwork).new? %>
       </div>
     </div>
     <div class="py-2"></div>

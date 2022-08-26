@@ -1,8 +1,26 @@
-.btn-ghost {
+.btn-arted {
   color: white;
   background-color: $spacegreen;
   border: 1px solid white;
   padding: 8px 24px;
   border-radius: 30px;
   font-weight: lighter;
+  opacity: 1;
+}
+
+.btn-arted:hover {
+  opacity: 1;
+}
+
+.btn-red {
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
+  background-color: $darkred;
+}
+
+.btn-red:hover {
+  opacity: 1;
 }
