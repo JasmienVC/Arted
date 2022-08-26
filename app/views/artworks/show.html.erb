@@ -35,7 +35,7 @@
       <h4>Shipping: <%= @artwork.shipping_costs %>€</h4>
       <%= button_to "Back to results", artworks_path, class: "btn-arted", data: { turbo: :false }, method: :get %>
       <% if !policy(@artwork).edit? %>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-arted" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Buy this artwork
         </button>
         <!-- Modal -->
@@ -50,8 +50,8 @@
                 Are you sure you want to buy? The artist will confirm and ship your artwork within 24h.
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-secondary"><%= link_to "Buy now", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post } %></button>
+                <button type="button" class="btn btn-arted" data-bs-dismiss="modal">Back</button>
+                <%= button_to "Buy now", artwork_artwork_transactions_path(@artwork), data: { turbo_method: :post }, class: "btn-arted" %>
               </div>
             </div>
           </div>
